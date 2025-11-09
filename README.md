@@ -4,6 +4,37 @@ This project analyzes source code from quantum computing libraries to identify r
 
 The workflow queries the GitHub API to find quantum software projects, clones them, preprocesses their code (including Jupyter Notebooks), and runs analysis scripts to extract and classify programming concepts.
 
+## Key Research Contributions
+
+This project provides two datasets as key contributions:
+
+### 1. Consolidated Quantum Patterns Knowledge Base
+
+**File:** [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv)
+
+A unified knowledge base consolidating quantum computing concepts from three major frameworks (Qiskit, PennyLane, and Classiq). This dataset contains:
+
+- **Framework concepts**: Extracted programming concepts (functions, classes, methods) from Qiskit, PennyLane, and Classiq
+- **Pattern classifications**: Manual classification of concepts mapped to quantum software patterns from the PlanQK Pattern Atlas
+- **Unified format**: Single consolidated dataset combining all three framework-specific datasets for easy analysis and comparison
+
+This knowledge base serves as a reference dataset for understanding how quantum computing concepts are implemented across different frameworks and how they relate to established software patterns.
+
+### 2. Quantum Concept Pattern Matches
+
+**File:** [`data/quantum_concept_matches_with_patterns.csv`](data/quantum_concept_matches_with_patterns.csv)
+
+A dataset documenting the semantic analysis results matching quantum computing concepts found in target projects to patterns in the knowledge base. This dataset contains:
+
+- **Concept matches**: Identified quantum computing concepts from analyzed projects
+- **Pattern mappings**: Matches between discovered concepts and patterns from the PlanQK Pattern Atlas
+- **Match metadata**: Information about match types (name-based, semantic, etc.), confidence scores, and source frameworks
+- **Project context**: Which projects contain which patterns and how patterns are adopted across the quantum software ecosystem
+
+This dataset provides insights into how quantum software patterns are actually used in practice across different quantum computing projects.
+
+**Note:** Both datasets are generated through the workflow described below. To reproduce these datasets, follow the replication workflow starting from Step 0.
+
 ## Workflow Overview
 
 The project follows an 8-step workflow organized into three stages:
@@ -26,34 +57,6 @@ Visual workflow diagrams are available in the `docs/` directory:
 - [`diagram1.mermaid`](docs/diagram1.mermaid) - Data Acquisition Stage
 - [`diagram2.mermaid`](docs/diagram2.mermaid) - Project and Concept Processing Stage
 - [`diagram3.mermaid`](docs/diagram3.mermaid) - Analysis and Reporting Stage
-
-## Experimental Data
-
-Experimental data is available in [`docs/experimental_data.md`](docs/experimental_data.md). The dataset includes:
-
-**Framework Concept Extractions:**
-- Classiq Quantum Patterns ([`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv))
-- PennyLane Quantum Patterns ([`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv))
-- Qiskit Quantum Patterns ([`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv))
-- Consolidated Knowledge Base ([`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv))
-
-**Pattern Analysis Results:**
-- Top 10 Most Frequently Matched Quantum Concepts ([`data/report/top_matched_concepts.csv`](data/report/top_matched_concepts.csv))
-- Match Type Analysis ([`data/report/match_type_counts.csv`](data/report/match_type_counts.csv))
-- Framework Analysis ([`data/report/matches_by_framework.csv`](data/report/matches_by_framework.csv))
-- Pattern Frequency Analysis ([`data/report/patterns_by_match_count.csv`](data/report/patterns_by_match_count.csv))
-
-**Pattern Atlas Data:**
-- Quantum patterns from PlanQK Pattern Atlas ([`data/quantum_patterns.json`](data/quantum_patterns.json))
-- Pattern metadata including names, aliases, intents, and descriptions
-
-To generate the experimental data report:
-
-```bash
-just experimental-data
-```
-
-This creates [`docs/experimental_data.md`](docs/experimental_data.md) with datasets formatted for academic use, including row numbers and data.
 
 ## Project Setup & Installation
 
@@ -139,6 +142,8 @@ This is the only manual step in the workflow. Classify the concepts extracted in
 
 Output: Classified Concepts (enriched CSV files)
 
+**Note:** After Step 4, the consolidated knowledge base [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv) is available. This is one of the key research contributions (see [Key Research Contributions](#key-research-contributions)).
+
 ### Step 5: Extract Notebooks
 
 Finds all Jupyter Notebooks (`.ipynb`) within the cloned projects.
@@ -176,6 +181,8 @@ Note: Ignore these warnings in the output (they are warnings, not errors):
 
 Output: Pattern Matches ([`data/quantum_concept_matches_with_patterns.csv`](data/quantum_concept_matches_with_patterns.csv))
 
+**Note:** This file is one of the key research contributions (see [Key Research Contributions](#key-research-contributions)). It contains the semantic analysis results matching quantum concepts from target projects to patterns in the knowledge base.
+
 ### Step 8: Generate Report
 
 Generates the final report summarizing the analysis findings.
@@ -189,13 +196,43 @@ This creates:
 - [`docs/final_pattern_report.md`](docs/final_pattern_report.md) - Markdown report
 - [`data/report/`](data/report/) - CSV tables for analysis
 
-To generate the experimental data report:
+### Step 8.1: Generate Experimental Data Report
+
+After completing all previous steps, generate the experimental data report. This command requires all data files from Steps 1-7 to exist.
 
 ```bash
 just experimental-data
 ```
 
-This creates [`docs/experimental_data.md`](docs/experimental_data.md) with datasets for reproducibility.
+This creates [`docs/experimental_data.md`](docs/experimental_data.md) with datasets formatted for academic use, including row numbers and data.
+
+**Note:** This command will fail if the required data files have not been generated by the previous workflow steps. Ensure you have completed Steps 1-7 before running this command.
+
+## Experimental Data
+
+After completing the workflow steps (Steps 0-8), you can generate a report containing all experimental datasets. The experimental data report includes:
+
+**Framework Concept Extractions:**
+- Classiq Quantum Patterns ([`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv))
+- PennyLane Quantum Patterns ([`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv))
+- Qiskit Quantum Patterns ([`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv))
+- Consolidated Knowledge Base ([`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv))
+
+**Pattern Analysis Results:**
+- Top 10 Most Frequently Matched Quantum Concepts ([`data/report/top_matched_concepts.csv`](data/report/top_matched_concepts.csv))
+- Match Type Analysis ([`data/report/match_type_counts.csv`](data/report/match_type_counts.csv))
+- Framework Analysis ([`data/report/matches_by_framework.csv`](data/report/matches_by_framework.csv))
+- Pattern Frequency Analysis ([`data/report/patterns_by_match_count.csv`](data/report/patterns_by_match_count.csv))
+
+**Pattern Atlas Data:**
+- Quantum patterns from PlanQK Pattern Atlas ([`data/quantum_patterns.json`](data/quantum_patterns.json))
+- Pattern metadata including names, aliases, intents, and descriptions
+
+**Prerequisites:** All workflow steps (Steps 0-8) must be completed before generating the experimental data report. The report generation requires the following files to exist:
+- Framework concept files from Step 3
+- Enriched pattern files from Step 4
+- Pattern definitions from Step 1
+- Analysis results from Step 7
 
 ## Workflow Orchestration
 
@@ -224,6 +261,12 @@ just workflow-ui
 | No execution history | Execution logs and history |
 
 ## Generated Files & Outputs
+
+### Key Research Datasets
+
+**Primary Contributions:**
+- [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv) - **Consolidated Quantum Patterns Knowledge Base** (see [Key Research Contributions](#key-research-contributions))
+- [`data/quantum_concept_matches_with_patterns.csv`](data/quantum_concept_matches_with_patterns.csv) - **Quantum Concept Pattern Matches** (see [Key Research Contributions](#key-research-contributions))
 
 ### Main Analysis Outputs
 
@@ -333,7 +376,7 @@ just test
 # Format and lint code
 just format-lint-test
 
-# Generate experimental data
+# Generate experimental data (requires completed workflow)
 just experimental-data
 ```
 
