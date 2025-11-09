@@ -32,9 +32,10 @@ Visual workflow diagrams are available in the `docs/` directory:
 Experimental data is available in [`docs/experimental_data.md`](docs/experimental_data.md). The dataset includes:
 
 **Framework Concept Extractions:**
-- Classiq Quantum Patterns ([`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv))
-- PennyLane Quantum Patterns ([`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv))
-- Qiskit Quantum Patterns ([`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv))
+- Classiq Quantum Patterns ([`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv))
+- PennyLane Quantum Patterns ([`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv))
+- Qiskit Quantum Patterns ([`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv))
+- Consolidated Knowledge Base ([`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv))
 
 **Pattern Analysis Results:**
 - Top 10 Most Frequently Matched Quantum Concepts ([`data/report/top_matched_concepts.csv`](data/report/top_matched_concepts.csv))
@@ -116,24 +117,25 @@ Parses source code from Qiskit, PennyLane, and Classiq to identify core concepts
 just identify-concepts
 ```
 
-This command generates the following files in the `data/knowledge_base/` directory:
-- [`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv)
-- [`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv)
-- [`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv)
+This command generates the following files in the `data/` directory:
+- [`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv)
+- [`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv)
+- [`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv)
 
 ### Step 4: Manual Concept Classification
 
 This is the only manual step in the workflow. Classify the concepts extracted in Step 3. Two options:
 
-*   **To replicate existing results:** Pre-classified files are provided in the `data/` directory:
-    *   [`data/enriched_classiq_quantum_patterns.csv`](data/enriched_classiq_quantum_patterns.csv)
-    *   [`data/enriched_pennylane_quantum_patterns.csv`](data/enriched_pennylane_quantum_patterns.csv)
-    *   [`data/enriched_qiskit_quantum_patterns.csv`](data/enriched_qiskit_quantum_patterns.csv)
+*   **To replicate existing results:** Pre-classified files are provided in the `data/knowledge_base/` directory:
+    *   [`data/knowledge_base/enriched_classiq_quantum_patterns.csv`](data/knowledge_base/enriched_classiq_quantum_patterns.csv)
+    *   [`data/knowledge_base/enriched_pennylane_quantum_patterns.csv`](data/knowledge_base/enriched_pennylane_quantum_patterns.csv)
+    *   [`data/knowledge_base/enriched_qiskit_quantum_patterns.csv`](data/knowledge_base/enriched_qiskit_quantum_patterns.csv)
+    *   [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv) - Consolidated knowledge base
 
 *   **To perform your own classification:**
     1.  Open the `_quantum_concepts.csv` files generated in Step 3
     2.  Add classification data to the rows
-    3.  Save the modified files with the `enriched_` prefix (e.g., [`data/enriched_qiskit_quantum_patterns.csv`](data/enriched_qiskit_quantum_patterns.csv))
+    3.  Save the modified files with the `enriched_` prefix in the `data/knowledge_base/` directory (e.g., [`data/knowledge_base/enriched_qiskit_quantum_patterns.csv`](data/knowledge_base/enriched_qiskit_quantum_patterns.csv))
 
 Output: Classified Concepts (enriched CSV files)
 
@@ -231,9 +233,10 @@ just workflow-ui
 - [`docs/experimental_data.md`](docs/experimental_data.md) - Experimental datasets
 
 **CSV Data Tables:**
-- [`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv) - Classiq framework concepts
-- [`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv) - PennyLane framework concepts
-- [`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv) - Qiskit framework concepts
+- [`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv) - Classiq framework concepts
+- [`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv) - PennyLane framework concepts
+- [`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv) - Qiskit framework concepts
+- [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv) - Consolidated knowledge base
 - [`data/quantum_patterns.json`](data/quantum_patterns.json) - Pattern Atlas data
 
 **Analysis Results:**
