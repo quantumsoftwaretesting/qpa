@@ -278,11 +278,13 @@ class ReportGenerator:
     def _generate_framework_table(self, framework: str, file_path: Path) -> List[str]:
         """Generate a table for a specific framework's concepts."""
         try:
-            # Try different delimiters based on framework
-            delimiter = ";" if framework == "Qiskit" else ","
-            
-            # Read the CSV file with appropriate delimiter
-            df = pd.read_csv(file_path, delimiter=delimiter)
+            # All framework concept files use semicolon as delimiter
+            # Try semicolon first, fall back to comma if needed
+            try:
+                df = pd.read_csv(file_path, delimiter=";")
+            except Exception:
+                # Fallback to comma delimiter
+                df = pd.read_csv(file_path, delimiter=",")
             
             content = [
                 f"## {framework} Quantum Concepts",
