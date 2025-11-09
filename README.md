@@ -221,8 +221,6 @@ just workflow-ui
 | Sequential execution only | Parallel execution where possible |
 | No execution history | Execution logs and history |
 
-For workflow documentation, see [docs/workflow_orchestration.md](docs/workflow_orchestration.md).
-
 ## Generated Files & Outputs
 
 ### Main Analysis Outputs
@@ -340,7 +338,6 @@ just experimental-data
 
 - **Main README**: This file - project overview and setup
 - **Experimental Data**: `docs/experimental_data.md` - Experimental datasets
-- **Workflow Orchestration**: `docs/workflow_orchestration.md` - Prefect setup and usage
 - **Workflow Diagrams**: `docs/workflow_diagrams.md` - Visual workflow documentation
 - **Coverage Report**: `docs/COVERAGE.md` - Testing documentation
 - **Formatting Guide**: `docs/FORMATTING.md` - Code style guidelines
