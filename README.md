@@ -4,15 +4,15 @@ This project analyzes source code from quantum computing libraries to identify r
 
 The workflow queries the GitHub API to find quantum software projects, clones them, preprocesses their code (including Jupyter Notebooks), and runs analysis scripts to extract and classify programming concepts.
 
-## Key Research Contributions
+## Research Contributions
 
 This project provides two datasets as key contributions:
 
-### 1. Consolidated Quantum Patterns Knowledge Base
+### 1. Quantum Patterns Knowledge Base
 
 **File:** [`data/knowledge_base/knowledge_base.csv`](data/knowledge_base/knowledge_base.csv)
 
-A unified knowledge base consolidating quantum computing concepts from three major frameworks (Qiskit, PennyLane, and Classiq). This dataset contains:
+A knowledge base consolidating quantum computing concepts from three major frameworks (Qiskit, PennyLane, and Classiq). This dataset contains:
 
 - **Framework concepts**: Extracted programming concepts (functions, classes, methods) from Qiskit, PennyLane, and Classiq
 - **Pattern classifications**: Manual classification of concepts mapped to quantum software patterns from the PlanQK Pattern Atlas
