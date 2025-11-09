@@ -32,9 +32,9 @@ Visual workflow diagrams are available in the `docs/` directory:
 Experimental data is available in [`docs/experimental_data.md`](docs/experimental_data.md). The dataset includes:
 
 **Framework Concept Extractions:**
-- Classiq Quantum Patterns ([`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv))
-- PennyLane Quantum Patterns ([`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv))
-- Qiskit Quantum Patterns ([`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv))
+- Classiq Quantum Patterns ([`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv))
+- PennyLane Quantum Patterns ([`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv))
+- Qiskit Quantum Patterns ([`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv))
 
 **Pattern Analysis Results:**
 - Top 10 Most Frequently Matched Quantum Concepts ([`data/report/top_matched_concepts.csv`](data/report/top_matched_concepts.csv))
@@ -116,10 +116,10 @@ Parses source code from Qiskit, PennyLane, and Classiq to identify core concepts
 just identify-concepts
 ```
 
-This command generates the following files in the `data/` directory:
-- [`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv)
-- [`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv)
-- [`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv)
+This command generates the following files in the `data/knowledge_base/` directory:
+- [`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv)
+- [`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv)
+- [`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv)
 
 ### Step 4: Manual Concept Classification
 
@@ -231,9 +231,9 @@ just workflow-ui
 - [`docs/experimental_data.md`](docs/experimental_data.md) - Experimental datasets
 
 **CSV Data Tables:**
-- [`data/classiq_quantum_concepts.csv`](data/classiq_quantum_concepts.csv) - Classiq framework concepts
-- [`data/pennylane_quantum_concepts.csv`](data/pennylane_quantum_concepts.csv) - PennyLane framework concepts
-- [`data/qiskit_quantum_concepts.csv`](data/qiskit_quantum_concepts.csv) - Qiskit framework concepts
+- [`data/knowledge_base/classiq_quantum_concepts.csv`](data/knowledge_base/classiq_quantum_concepts.csv) - Classiq framework concepts
+- [`data/knowledge_base/pennylane_quantum_concepts.csv`](data/knowledge_base/pennylane_quantum_concepts.csv) - PennyLane framework concepts
+- [`data/knowledge_base/qiskit_quantum_concepts.csv`](data/knowledge_base/qiskit_quantum_concepts.csv) - Qiskit framework concepts
 - [`data/quantum_patterns.json`](data/quantum_patterns.json) - Pattern Atlas data
 
 **Analysis Results:**
